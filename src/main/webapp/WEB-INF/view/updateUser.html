@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+</head>
+<body>
+<h2 th:text="${save} ? 'Add User' : 'Edit User'"></h2>
+<form class="center" method="post" th:action="${save} ? @{/saveUser} : @{/editUser/updateUser}" th:object="${user}">
+    <input th:field="*{id}" type="hidden"/>
+    <div>
+        <label>Name:</label>
+        <input placeholder="Enter your Name" th:field="*{name}" type="text"/>
+    </div>
+    <br>
+    <div>
+        <label>Last Name:</label>
+        <input placeholder="Enter your Last Name" th:field="*{surname}" type="text"/>
+    </div>
+    <br>
+    <div>
+        <label>Age:</label>
+        <input placeholder="Enter your Age" th:field="*{age}" type="text"/>
+    </div>
+    <br>
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
